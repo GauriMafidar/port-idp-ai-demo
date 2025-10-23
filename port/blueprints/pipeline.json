@@ -1,0 +1,14 @@
+{
+  "identifier": "pipeline",
+  "title": "CI/CD Pipeline",
+  "schema": {
+    "properties": {
+      "service": { "type": "string", "title": "Service Name" },
+      "ciTool": { "type": "string", "title": "CI Tool", "enum": ["GitHub Actions"] },
+      "deploymentTarget": { "type": "string", "title": "Deployment Target", "enum": ["Kubernetes"] },
+      "infraTool": { "type": "string", "title": "Infra Tool", "enum": ["Terraform"] }
+    },
+    "required": ["service", "ciTool", "deploymentTarget"]
+  }
+}
+``

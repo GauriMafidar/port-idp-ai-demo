@@ -1,0 +1,6 @@
+{
+  "name": "Create Pipeline",
+  "inputs": ["service", "repo", "environment"],
+  "outputs": ["pipeline_yaml"],
+  "logic": "Generate GitHub Actions workflow and Terraform files based on inputs."
+}
