@@ -18,3 +18,19 @@ jobs:
     steps:
       - name: Deploy to Kubernetes
         run: kubectl apply -f microservices/my-service/k8s/deployment.yaml
+
+  # Optional Terraform job (can be enabled for demo)
+  terraform:
+    if: ${{ github.event.inputs.terraform == 'true' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - name: Terraform Init & Apply
+        run: |
+          cd infra/terraform
+          terraform init
+          terraform apply -auto-approve
